@@ -443,8 +443,7 @@ this.
 
 ### Linux
 
-The memory management of Linux is centered around the management of two components,
-physical memory and virtual memory. 
+Memory Management in Linux is centered around two components, physical memory and virtual memory. 
 
 
 #### Physical Memory
@@ -452,7 +451,7 @@ physical memory and virtual memory.
 __Physical memory__ refers to Random Access Memory which is abstracted as pages, groups 
 of pages or small blocks of RAM. For 32bit achitectures, the Linux kernal assigns 
 4GB of virtual memory to each process. 3GB of virtual address space is used for 
-itself, and 1G is for its page tables and kernel data (Tanenbaum and Bos, n.d.). 
+the process itself, and 1G is for its page tables and kernel data (Tanenbaum and Bos, n.d.). 
 The physical memory that is mapped to this 1GB virtual address space is then further divided
 into zones as will be described below.
 
@@ -485,6 +484,12 @@ DMA devices such as ISA buses (above). _Zone_DMA32_ catered for devices that sup
 upto 32bits in length (4GB). _Zone_NORMAL_ comprises of an addresses space between 16MB and below 896MB. The addresses between this space can 
 be mapped/accessed by the kernel directly (Love, 2015). _ZONE_HIGHMEM_ is the address space above 896MB. This space can not be directly accessed by the 
 kernel. For 64bit achitectures, this is usually empty (Bovet and Cesati, 2007).
+
+
+## What is the page allocator?
+
+Linux uses the _Paging Memory Management Scheme_. This scheme divides main memory into frames and logical memory
+into pages. Frames are fixed-sized memory blocks which are of the same size as the pages.
 
 
 
